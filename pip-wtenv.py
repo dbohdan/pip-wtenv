@@ -1,9 +1,13 @@
 #! /usr/bin/env python3
 
 
-# Requires Python >= 3.6.
-# Warning: this function restarts the script in a virtual environment.
 def pip_wtenv(*args):
+    """
+    Requires Python >= 3.6.
+
+    Warning: this function restarts the script in a virtual environment.
+    """
+
     from os import execl
     from pathlib import Path
     from subprocess import run
