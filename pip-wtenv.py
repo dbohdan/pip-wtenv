@@ -1,9 +1,6 @@
 #! /usr/bin/env python3
 
-from typing import Optional
-
-
-def pip_wtenv(*args: str, name: Optional[str] = None) -> None:
+def pip_wtenv(*args: str, name: str = "") -> None:
     """
     Requires Python >= 3.6.
 
@@ -17,7 +14,7 @@ def pip_wtenv(*args: str, name: Optional[str] = None) -> None:
     from venv import create as create_venv
 
     me = Path(__file__)
-    venv_dir = me.resolve().parent / f".venv.{me.name if name is None else name}"
+    venv_dir = me.resolve().parent / f".venv.{name if name else me.name}"
     venv_python = venv_dir / (
         "Scripts/python.exe" if platform == "win32" else "bin/python"
     )
