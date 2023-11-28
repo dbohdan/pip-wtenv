@@ -26,7 +26,7 @@ def pip_wtenv(*args: str, name: str = "") -> None:
     installed_marker = venv_dir / "installed"
 
     if not installed_marker.exists():
-        run([venv_python, "-m", "pip", "install", "pip"], check=True)
+        run([venv_python, "-m", "pip", "install", "--upgrade", "pip"], check=True)
         run([venv_python, "-m", "pip", "install", *args], check=True)
         installed_marker.touch()
 
