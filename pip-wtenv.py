@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+
 def pip_wtenv(*args: str, name: str = "") -> None:
     """
     Requires Python >= 3.6.
@@ -21,7 +22,12 @@ def pip_wtenv(*args: str, name: str = "") -> None:
 
     if not venv_dir.exists():
         create_venv(venv_dir, with_pip=True)
+
+    installed_marker = venv_dir / "installed"
+
+    if not installed_marker.exists():
         run([venv_python, "-m", "pip", "install", *args], check=True)
+        installed_marker.touch()
 
     if not venv_python.samefile(executable):
         execl(venv_python, venv_python, *argv)
