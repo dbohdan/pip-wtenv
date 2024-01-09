@@ -15,7 +15,7 @@ def pip_wtenv(*args: str, name: str = "") -> None:
     from venv import create as create_venv
 
     me = Path(__file__)
-    venv_dir = me.absolute().parent / f".venv.{name if name else me.name}"
+    venv_dir = me.absolute().parent / f".venv.{name or me.name}"
     venv_python = venv_dir / (
         "Scripts/python.exe" if platform == "win32" else "bin/python"
     )
