@@ -3,9 +3,11 @@
 
 def pip_wtenv(*args: str, name: str = "") -> None:
     """
+    https://github.com/dbohdan/pip-wtenv
+
     Requires Python >= 3.6.
 
-    Warning: this function restarts the script in a virtual environment.
+    Warning: this function restarts Python in a virtual environment.
     """
 
     from os import execl
@@ -34,11 +36,12 @@ def pip_wtenv(*args: str, name: str = "") -> None:
         execl(venv_python, venv_python, *argv)
 
 
-pip_wtenv("beautifulsoup4", "requests>=1,<2.26", "pyyaml==5.3.1")
+# A use example.
 
-import requests
-import yaml
-from bs4 import BeautifulSoup
+pip_wtenv("httpx", "rich<13")
 
-soup = BeautifulSoup(requests.get("https://pypi.org").content, "html.parser")
-print(yaml.dump({"header": soup.find("h1").get_text()}))
+import httpx
+from rich import print
+
+ip = httpx.get("https://icanhazip.com").text.strip()
+print(f"Your public IP address is [bold]{ip}[/bold]")
