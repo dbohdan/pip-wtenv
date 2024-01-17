@@ -14,8 +14,8 @@ The source code above is developed in [`pip-wtenv.py`](pip-wtenv.py).
 pip-wtenv is inspired by pip.wtf
 ([website](https://pip.wtf),
 [repository](https://github.com/sabslikesobs/pip.wtf)).
-It differs from pip.wtf in several ways.
-Namely:
+It differs from pip.wtf in several ways,
+namely:
 
 - pip-wtenv lacks Python 2.7 compatibility.
   It requires Python &ge; 3.6 on POSIX systems
@@ -55,13 +55,20 @@ this only packages binary dependencies
 Call `pip_wtenv(*args: str, name: str = "")` with your arguments to pip.
 This will,
 if necessary,
-restart your script in a virtual environment (venv) with the dependencies installed.
-If the venv has not been initialized,
-`pip_wtenv` will create the environment and run the pip command in it before restarting.
-The venv directory is named `.venv.foo.py` by default for `foo.py` and is created in the same directory as `foo.py`.
-Pass the argument `name` to use the venv `f".venv.{name}"` instead.
+restart the script in a virtual environment (venv).
+Before restarting,
+`pip_wtenv` will:
+
+- Create the venv
+  if the venv directory does not exist;
+- Upgrade pip,
+  then run it with the specified arguments
+  if the venv directory does not contain a file called `installed`.
+
+The venv directory for `foo.py` is named `.venv.foo.py` by default and is created in the same directory as `foo.py`.
+Pass the argument `name` to use `f".venv.{name}"` instead.
 To update the dependencies,
-delete the venv directory and run the script.
+delete the venv directory before running the script.
 
 ## License
 
