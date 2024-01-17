@@ -26,14 +26,14 @@ def pip_wtenv(*args: str, name: str = "") -> None:
 
     me = Path(__file__)
     venv_dir = me.absolute().parent / f".venv.{name or me.name}"
-    venv_python = venv_dir / (
-        "Scripts/python.exe" if platform == "win32" else "bin/python"
-    )
 
     if not venv_dir.exists():
         create_venv(venv_dir, with_pip=True)
 
     installed_marker = venv_dir / "installed"
+    venv_python = venv_dir / (
+        "Scripts/python.exe" if platform == "win32" else "bin/python"
+    )
 
     if not installed_marker.exists():
         run([venv_python, "-m", "pip", "install", "--upgrade", "pip"], check=True)
