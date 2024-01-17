@@ -3,9 +3,9 @@
 
 def pip_wtenv(*args: str, name: str = "") -> None:
     """
-    https://github.com/dbohdan/pip-wtenv
+    See https://github.com/dbohdan/pip-wtenv.
 
-    Requires Python >= 3.6.
+    Requires Python >= 3.6 on POSIX systems and >= 3.8 on Windows.
 
     Warning: this function restarts Python in a virtual environment.
     """
