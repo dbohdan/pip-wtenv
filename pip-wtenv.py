@@ -22,15 +22,15 @@ def pip_wtenv(*args: str, name: str = "") -> None:
     if not venv_dir.exists():
         create_venv(venv_dir, with_pip=True)
 
-    installed_marker = venv_dir / "installed"
+    ready_marker = venv_dir / "ready"
     venv_python = venv_dir / (
         "Scripts/python.exe" if platform == "win32" else "bin/python"
     )
 
-    if not installed_marker.exists():
+    if not ready_marker.exists():
         run([venv_python, "-m", "pip", "install", "--upgrade", "pip"], check=True)
         run([venv_python, "-m", "pip", "install", *args], check=True)
-        installed_marker.touch()
+        ready_marker.touch()
 
     if not venv_python.samefile(executable):
         execl(venv_python, venv_python, *argv)

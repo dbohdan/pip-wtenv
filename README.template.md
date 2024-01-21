@@ -63,7 +63,7 @@ Before restarting,
   if the venv directory does not exist;
 - Upgrade pip,
   then run it with the specified arguments
-  if the venv directory does not contain a file called `installed`.
+  if the venv directory does not contain a file called `ready`.
 
 The venv directory for `foo.py` is named `.venv.foo.py` by default and is created in the same directory as `foo.py`.
 Pass the argument `name` to use `f".venv.{name}"` instead.
