@@ -42,7 +42,7 @@ What I actually recommend using is one of the following script runners:
 - [pipx](https://github.com/pypa/pipx) &ge; 1.4.2 for [PEP 723 compatibility](https://github.com/pypa/pipx/issues/1187)
   ([Repology](https://repology.org/project/pipx/versions)).
 
-You can also package your script with its dependecies as a
+You can also package your script with its dependencies as a
 [zipapp](https://docs.python.org/3/library/zipapp.html)
 using
 [shiv](https://github.com/linkedin/shiv).
@@ -72,5 +72,12 @@ delete the venv directory before running the script.
 
 ## License
 
-[0BSD](LICENSE).
-This means attribution (credit) is not required.
+This work is licensed under the terms of the
+[BSD Zero Clause License](LICENSE.0BSD)
+or,
+alternatively,
+under the terms of
+[MIT No Attribution](LICENSE.MIT-0).
+You may use this work under either of these licenses,
+based on your preference.
+Both licenses do not require attribution (credit).
