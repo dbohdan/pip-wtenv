@@ -81,7 +81,7 @@ I wanted to see what a pip.wtf counterpart that used a venv would look like.
 The mechanism that manages the dependencies of single-file scripts should not,
 I think,
 be duplicated in each script.
-What I actually recommend using is one of the following script runners:
+What I recommend over pip-wtenv is one of the following script runners:
 
 - [fades](https://github.com/PyAr/fades)
   ([Repology](https://repology.org/project/fades/versions))&thinsp;&mdash;&thinsp;`sudo apt install fades` on Debian 10 or later and Ubuntu 16.04 or later.
@@ -115,7 +115,7 @@ Before restarting,
 
 By default,
 the venv directory for `foo.py` is named `.venv.foo.py`
-and is created in the same directory as `foo.py`
+and is created in the same directory as `foo.py`.
 Pass `pip_wtenv` the argument `name` to use `f".venv.{name}"` instead.
 To change the location of the venv directory,
 pass the function a non-empty `venv_parent` argument;
@@ -123,6 +123,20 @@ for example,
 `~/.cache/pip-wtenv/`.
 To update the dependencies,
 delete the venv directory before running the script.
+
+Note that symlinks are not resolved in the script path.
+This means that
+if you invoke a script that uses pip-wtenv through a symlink,
+the venv will be created in the directory with the symlink,
+not its target file.
+This allows for greater flexibility:
+
+- You can use a symlink
+  to run a script stored in a location
+  where you have no write access.
+- The same script can have different venvs
+  with different dependencies
+  in different places.
 
 ## License
 
