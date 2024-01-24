@@ -9,7 +9,7 @@ copy and paste the function `pip_wtenv` into your script and call it with the de
 #! /usr/bin/env python3
 
 
-def pip_wtenv(*args: str, name: str = "") -> None:
+def pip_wtenv(*args: str, name: str = "", venv_parent: str = "") -> None:
     """
     See https://github.com/dbohdan/pip-wtenv.
 
@@ -25,7 +25,9 @@ def pip_wtenv(*args: str, name: str = "") -> None:
     from venv import create as create_venv
 
     me = Path(__file__)
-    venv_dir = me.absolute().parent / f".venv.{name or me.name}"
+    venv_dir = (
+        Path(venv_parent).expanduser() if venv_parent else me.parent
+    ) / f".venv.{name or me.name}"
 
     if not venv_dir.exists():
         create_venv(venv_dir, with_pip=True)
@@ -98,7 +100,7 @@ this only packages binary dependencies
 
 ## Usage
 
-Call `pip_wtenv(*args: str, name: str = "")` with your arguments to pip.
+Call `pip_wtenv(*args: str, name: str = "", venv_parent: str = "")` with your arguments to pip.
 This will,
 if necessary,
 restart the script in a virtual environment (venv).
@@ -111,8 +113,14 @@ Before restarting,
   then run it with the specified arguments
   if the venv directory does not contain a file called `ready`.
 
-The venv directory for `foo.py` is named `.venv.foo.py` by default and is created in the same directory as `foo.py`.
-Pass the argument `name` to use `f".venv.{name}"` instead.
+By default,
+the venv directory for `foo.py` is named `.venv.foo.py`
+and is created in the same directory as `foo.py`
+Pass `pip_wtenv` the argument `name` to use `f".venv.{name}"` instead.
+To change the location of the venv directory,
+pass the function a non-empty `venv_parent` argument;
+for example,
+`~/.cache/pip-wtenv/`.
 To update the dependencies,
 delete the venv directory before running the script.
 

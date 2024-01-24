@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 
-def pip_wtenv(*args: str, name: str = "") -> None:
+def pip_wtenv(*args: str, name: str = "", venv_parent: str = "") -> None:
     """
     See https://github.com/dbohdan/pip-wtenv.
 
@@ -17,7 +17,9 @@ def pip_wtenv(*args: str, name: str = "") -> None:
     from venv import create as create_venv
 
     me = Path(__file__)
-    venv_dir = me.absolute().parent / f".venv.{name or me.name}"
+    venv_dir = (
+        Path(venv_parent).expanduser() if venv_parent else me.parent
+    ) / f".venv.{name or me.name}"
 
     if not venv_dir.exists():
         create_venv(venv_dir, with_pip=True)

@@ -52,7 +52,7 @@ this only packages binary dependencies
 
 ## Usage
 
-Call `pip_wtenv(*args: str, name: str = "")` with your arguments to pip.
+Call `pip_wtenv(*args: str, name: str = "", venv_parent: str = "")` with your arguments to pip.
 This will,
 if necessary,
 restart the script in a virtual environment (venv).
@@ -65,8 +65,14 @@ Before restarting,
   then run it with the specified arguments
   if the venv directory does not contain a file called `ready`.
 
-The venv directory for `foo.py` is named `.venv.foo.py` by default and is created in the same directory as `foo.py`.
-Pass the argument `name` to use `f".venv.{name}"` instead.
+By default,
+the venv directory for `foo.py` is named `.venv.foo.py`
+and is created in the same directory as `foo.py`
+Pass `pip_wtenv` the argument `name` to use `f".venv.{name}"` instead.
+To change the location of the venv directory,
+pass the function a non-empty `venv_parent` argument;
+for example,
+`~/.cache/pip-wtenv/`.
 To update the dependencies,
 delete the venv directory before running the script.
 
