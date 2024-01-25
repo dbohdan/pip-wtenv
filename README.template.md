@@ -1,6 +1,6 @@
 # pip-wtenv
 
-**pip-wtenv** lets your single-file Python script download and install its own dependencies
+**pip-wtenv** lets a single-file Python script download and install its own dependencies
 (without affecting the rest of the system).
 To use it,
 copy and paste the function `pip_wtenv` into your script and call it with the dependencies as arguments.
@@ -10,6 +10,8 @@ $code
 ```
 
 The source code above is developed in [`pip-wtenv.py`](pip-wtenv.py).
+
+## Comparison with pip.wtf
 
 pip-wtenv is inspired by pip.wtf
 ([website](https://pip.wtf),
@@ -22,32 +24,53 @@ namely:
   and Python &ge; 3.8 on Windows.
   (3.6 has been tested on Linux and 3.7 on FreeBSD.)
 - pip-wtenv installs dependencies in a
-  [virtual environment](https://docs.python.org/3/library/venv.html).
+  [virtual environment](https://docs.python.org/3/library/venv.html) (venv).
 - pip-wtenv works on Windows.
-- pip-wtenv has a free/open-source license.
+- pip-wtenv has a free/libre/open-source license.
 
-## Should you use this?
+## Alternatives
 
 I wrote pip-wtenv out of curiosity.
-I wanted to see what a pip.wtf counterpart that used a venv would look like.
-The mechanism that manages the dependencies of single-file scripts should not,
-I think,
+My goal was to see what a pip.wtf counterpart that used virtual environments
+would look like.
+I think
+the mechanism that manages the dependencies of single-file scripts should not
 be duplicated in each script.
-What I recommend over pip-wtenv is one of the following script runners:
+It is usually better to use a script runner
+like one of the following
+([my comparison](https://dbohdan.com/scripts-with-dependencies#python)):
 
 - [fades](https://github.com/PyAr/fades)
   ([Repology](https://repology.org/project/fades/versions))&thinsp;&mdash;&thinsp;`sudo apt install fades` on Debian 10 or later and Ubuntu 16.04 or later.
 - [pip-run](https://github.com/jaraco/pip-run)
   ([Repology](https://repology.org/project/python:pip-run/versions)).
-- [pipx](https://github.com/pypa/pipx) &ge; 1.4.2 for [PEP 723 compatibility](https://github.com/pypa/pipx/issues/1187)
-  ([Repology](https://repology.org/project/pipx/versions)).
+- [pipx](https://github.com/pypa/pipx)
+  ([Repology](https://repology.org/project/pipx/versions))&thinsp;&mdash;&thinsp;Version
+  &ge; 1.4.2 has
+  [PEP 723 compatibility](https://github.com/pypa/pipx/issues/1187).
+  Choose pipx
+  if you are not sure what to choose.
 
-You can also package your script with its dependencies as a
+To use a script runner,
+a user of the script needs to fulfill certain conditions.
+They must have the runner installed on their machine.
+If they don't,
+they need the access and the technical skill to install it.
+To cache packages and venvs and reduce startup time,
+they need a user directory on persistent storage.
+For beginners,
+those who are not allowed to install software,
+or those who have a USB flash drive but no persistent home directory,
+a script that manages its own dependencies may be better.
+
+A self-contained
 [zipapp](https://docs.python.org/3/library/zipapp.html)
-using
+that depends only on Python
+is potentially a good alternative for all users.
+One way to produce a self-contained zipapp is with
 [shiv](https://github.com/linkedin/shiv).
 However,
-this only packages binary dependencies
+shiv only packages binary dependencies
 [for the current platform](https://github.com/linkedin/shiv/issues/26).
 
 ## Usage
@@ -55,7 +78,7 @@ this only packages binary dependencies
 Call `pip_wtenv(*args: str, name: str = "", venv_parent: str = "")` with your arguments to pip.
 This will,
 if necessary,
-restart the script in a virtual environment (venv).
+restart the script in a virtual environment.
 Before restarting,
 `pip_wtenv` will:
 
@@ -76,7 +99,7 @@ for example,
 To update the dependencies,
 delete the venv directory before running the script.
 
-Note that symlinks are not resolved in the script path.
+Note that symlinks in the script path are not resolved.
 This means that
 if you invoke a script that uses pip-wtenv through a symlink,
 the venv will be created in the directory with the symlink,
