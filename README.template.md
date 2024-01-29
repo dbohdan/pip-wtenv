@@ -28,7 +28,8 @@ and Python &ge; 3.8 on Windows.
 is supported.
 
 <details>
-<summary>Tested versions and OSs.</summary>
+<summary><h3>Tested versions and OSs</h3></summary>
+
 The following Python versions and operating systems have been tested
 (all on x86-64):
 
