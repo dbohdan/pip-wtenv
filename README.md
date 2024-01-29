@@ -61,6 +61,23 @@ print(f"Your public IP address is [bold]{ip}[/bold]")
 
 The source code above is developed in [`pip-wtenv.py`](pip-wtenv.py).
 
+## Contents
+
+- [Requirements](#requirements)
+- [Comparison with pip\.wtf](#comparison-with-pipwtf)
+- [Alternatives](#alternatives)
+- [Usage](#usage)
+- [License](#license)
+
+## Requirements
+
+pip-wtenv requires Python &ge; 3.6 on POSIX systems
+and Python &ge; 3.8 on Windows.
+CPython 3.6 has been tested on Linux and 3.7 on FreeBSD.
+[PyPy](https://github.com/pypy/pypy)
+(Python 3.9 and 3.10)
+is supported.
+
 ## Comparison with pip.wtf
 
 pip-wtenv is inspired by pip.wtf
@@ -69,10 +86,8 @@ pip-wtenv is inspired by pip.wtf
 It differs from pip.wtf in several ways,
 namely:
 
-- pip-wtenv lacks Python 2.7 compatibility.
-  It requires Python &ge; 3.6 on POSIX systems
-  and Python &ge; 3.8 on Windows.
-  (3.6 has been tested on Linux and 3.7 on FreeBSD.)
+- pip-wtenv lacks compatibility
+  with Python 2.7 and early versions of Python 3.
 - pip-wtenv installs dependencies in a
   [virtual environment](https://docs.python.org/3/library/venv.html) (venv).
 - pip-wtenv works on Windows.
