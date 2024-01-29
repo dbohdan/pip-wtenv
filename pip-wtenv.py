@@ -13,12 +13,12 @@ def pip_wtenv(*args: str, name: str = "", venv_parent: str = "") -> None:
     from os import execl
     from pathlib import Path
     from subprocess import run
-    from sys import argv, executable, platform
+    from sys import argv, platform, prefix
     from venv import create as create_venv
 
     me = Path(__file__)
     venv_dir = (
-        Path(venv_parent).expanduser() if venv_parent else me.parent
+        Path(venv_parent).expanduser().absolute() if venv_parent else me.parent
     ) / f".venv.{name or me.name}"
 
     if not venv_dir.exists():
@@ -34,7 +34,7 @@ def pip_wtenv(*args: str, name: str = "", venv_parent: str = "") -> None:
         run([venv_python, "-m", "pip", "install", *args], check=True)
         ready_marker.touch()
 
-    if not venv_python.samefile(executable):
+    if not venv_python.is_relative_to(prefix):
         execl(venv_python, venv_python, *argv)
 
 
