@@ -23,10 +23,27 @@ The source code above is developed in [`pip-wtenv.py`](pip-wtenv.py).
 
 pip-wtenv requires Python &ge; 3.6 on POSIX systems
 and Python &ge; 3.8 on Windows.
-CPython 3.6 has been tested on Linux and 3.7 on FreeBSD.
 [PyPy](https://github.com/pypy/pypy)
 (Python 3.9 and 3.10)
 is supported.
+
+<details>
+<summary>Tested versions and OSs.</summary>
+The following Python versions and operating systems have been tested
+(all on x86-64):
+
+- CPython:
+  - 3.6 on Ubuntu 22.04
+  - 3.7—3.12 on Ubuntu 22.04 (GitHub Actions)
+  - 3.7, 3.12 on FreeBSD 14.0-RELEASE
+  - 3.10 on NetBSD 9.3
+  - 3.10 on OpenBSD 7.4
+  - 3.8 on Windows 10
+  - 3.9—3.12 on Windows Server 2019 (GitHub Actions)
+- PyPy:
+  - 7.3 (Python 3.9, 3.10) on Ubuntu 22.04 (GitHub Actions)
+  - 7.3 (Python 3.9, 3.10) on Windows Server 2019 (GitHub Actions)
+</details>
 
 ## Comparison with pip.wtf
 
@@ -56,9 +73,9 @@ like one of the following
 ([my comparison](https://dbohdan.com/scripts-with-dependencies#python)):
 
 - [fades](https://github.com/PyAr/fades)
-  ([Repology](https://repology.org/project/fades/versions))&thinsp;&mdash;&thinsp;`sudo apt install fades` on Debian 10 or later and Ubuntu 16.04 or later.
+  ([Repology](https://repology.org/project/fades/versions))&thinsp;&mdash;&thinsp;`sudo apt install fades` on Debian 10 or later and Ubuntu 16.04 or later
 - [pip-run](https://github.com/jaraco/pip-run)
-  ([Repology](https://repology.org/project/python:pip-run/versions)).
+  ([Repology](https://repology.org/project/python:pip-run/versions))
 - [pipx](https://github.com/pypa/pipx)
   ([Repology](https://repology.org/project/pipx/versions))&thinsp;&mdash;&thinsp;Version
   &ge; 1.4.2 has
@@ -98,7 +115,7 @@ Before restarting,
 `pip_wtenv` will:
 
 - Create the venv
-  if the venv directory does not exist;
+  if the venv directory does not exist.
 - Upgrade pip,
   then run it with the specified arguments
   if the venv directory does not contain a file called `ready`.
