@@ -84,16 +84,18 @@ The following Python versions and operating systems have been tested
 (all on x86-64):
 
 - CPython:
-  - 3.6 on Ubuntu 22.04
-  - 3.7—3.12 on Ubuntu 22.04 (GitHub Actions)
   - 3.7, 3.12 on FreeBSD 14.0-RELEASE
+  - 3.7—3.12 on macOS 12 (GitHub Actions)
   - 3.10 on NetBSD 9.3
   - 3.10 on OpenBSD 7.4
+  - 3.6 on Ubuntu 22.04
+  - 3.7—3.12 on Ubuntu 22.04 (GitHub Actions)
   - 3.8 on Windows 10
-  - 3.9—3.12 on Windows Server 2019 (GitHub Actions)
+  - 3.9—3.12 on Windows Server 2022 (GitHub Actions)
 - PyPy:
+  - 7.3 (Python 3.9, 3.10) on macOS 12 (GitHub Actions)
   - 7.3 (Python 3.9, 3.10) on Ubuntu 22.04 (GitHub Actions)
-  - 7.3 (Python 3.9, 3.10) on Windows Server 2019 (GitHub Actions)
+  - 7.3 (Python 3.9, 3.10) on Windows Server 2022 (GitHub Actions)
 </details>
 
 ## Comparison with pip.wtf
