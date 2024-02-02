@@ -11,7 +11,7 @@ TEMPLATE_FILE = Path("README.template.md")
 def main() -> None:
     template = Template(TEMPLATE_FILE.read_text())
 
-    readme = template.safe_substitute(
+    readme = template.substitute(
         code=CODE_FILE.read_text().strip(),
     )
 
