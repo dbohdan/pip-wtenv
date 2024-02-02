@@ -11,11 +11,14 @@ copy and paste the function `pip_wtenv` into your script and call it with the de
 
 def pip_wtenv(*args: str, name: str = "", venv_parent: str = "") -> None:
     """
+    Download and install dependencies in a virtual environment.
     See https://github.com/dbohdan/pip-wtenv.
 
-    Requires Python >= 3.6 on POSIX systems and >= 3.8 on Windows.
+    Warning: this function will restart Python
+    if Python is not running in a venv.
 
-    Warning: this function restarts Python in a virtual environment.
+    pip-wtenv requires Python >= 3.6 on POSIX systems
+    and Python >= 3.8 on Windows.
     """
 
     from os import execl
