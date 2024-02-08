@@ -78,11 +78,10 @@ like one of the following
 - [fades](https://github.com/PyAr/fades)
   ([Repology](https://repology.org/project/fades/versions))&thinsp;&mdash;&thinsp;`sudo apt install fades` on Debian 10 or later and Ubuntu 16.04 or later
 - [pip-run](https://github.com/jaraco/pip-run)
-  ([Repology](https://repology.org/project/python:pip-run/versions))
+  ([Repology](https://repology.org/project/python:pip-run/versions))&thinsp;&mdash;&thinsp;supports
+  [PEP 723](https://peps.python.org/pep-0723/)
 - [pipx](https://github.com/pypa/pipx)
-  ([Repology](https://repology.org/project/pipx/versions))&thinsp;&mdash;&thinsp;Version
-  &ge; 1.4.2 has
-  [PEP 723 compatibility](https://github.com/pypa/pipx/issues/1187).
+  ([Repology](https://repology.org/project/pipx/versions))&thinsp;&mdash;&thinsp;supports PEP 723.
   Choose pipx
   if you are not sure what to choose.
 
