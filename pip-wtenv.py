@@ -37,8 +37,7 @@ def pip_wtenv(*args: str, name: str = "", venv_parent: str = "") -> None:
         run([venv_python, "-m", "pip", "install", *args], check=True)
         ready_marker.touch()
 
-    # If we are not running in a venv,
-    # restart with `venv_python`.
+    # If we are not running in a venv, restart with `venv_python`.
     if prefix == base_prefix:
         execl(venv_python, venv_python, *argv)
 
