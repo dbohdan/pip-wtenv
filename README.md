@@ -201,7 +201,7 @@ This allows for greater flexibility:
 
 ## License
 
-This work is licensed under the terms of the
+This work is distributed under the terms of the
 [BSD Zero Clause License](LICENSE.0BSD)
 or,
 alternatively,
