@@ -9,7 +9,7 @@ copy and paste the function `pip_wtenv` into your script and call it with the de
 #! /usr/bin/env python3
 
 
-def pip_wtenv(*args: str, name: str = "", venv_parent: str = "") -> None:
+def pip_wtenv(*args: str, name: str = "", venv_parent_dir: str = "") -> None:
     """
     Download and install dependencies in a virtual environment.
     See https://github.com/dbohdan/pip-wtenv.
@@ -29,7 +29,7 @@ def pip_wtenv(*args: str, name: str = "", venv_parent: str = "") -> None:
 
     me = Path(__file__)
     venv_dir = (
-        Path(venv_parent).expanduser() if venv_parent else me.parent
+        Path(venv_parent_dir).expanduser() if venv_parent_dir else me.parent
     ) / f".venv.{name or me.name}"
 
     if not venv_dir.exists():
@@ -161,7 +161,7 @@ shiv only packages binary dependencies
 
 ## Usage
 
-Call `pip_wtenv(*args: str, name: str = "", venv_parent: str = "")` with your arguments to pip.
+Call `pip_wtenv(*args: str, name: str = "", venv_parent_dir: str = "")` with your arguments to pip.
 This will,
 if necessary,
 restart the script in a virtual environment.
@@ -179,7 +179,7 @@ the venv directory for `foo.py` is named `.venv.foo.py`
 and is created in the same directory as `foo.py`.
 Pass `pip_wtenv` the argument `name` to use `f".venv.{name}"` instead.
 To change the location of the venv directory,
-pass the function a non-empty `venv_parent` argument;
+pass the function a non-empty `venv_parent_dir` argument;
 for example,
 `~/.cache/pip-wtenv/`.
 To update the dependencies,

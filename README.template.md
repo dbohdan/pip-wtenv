@@ -109,7 +109,7 @@ shiv only packages binary dependencies
 
 ## Usage
 
-Call `pip_wtenv(*args: str, name: str = "", venv_parent: str = "")` with your arguments to pip.
+Call `pip_wtenv(*args: str, name: str = "", venv_parent_dir: str = "")` with your arguments to pip.
 This will,
 if necessary,
 restart the script in a virtual environment.
@@ -127,7 +127,7 @@ the venv directory for `foo.py` is named `.venv.foo.py`
 and is created in the same directory as `foo.py`.
 Pass `pip_wtenv` the argument `name` to use `f".venv.{name}"` instead.
 To change the location of the venv directory,
-pass the function a non-empty `venv_parent` argument;
+pass the function a non-empty `venv_parent_dir` argument;
 for example,
 `~/.cache/pip-wtenv/`.
 To update the dependencies,

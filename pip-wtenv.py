@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 
-def pip_wtenv(*args: str, name: str = "", venv_parent: str = "") -> None:
+def pip_wtenv(*args: str, name: str = "", venv_parent_dir: str = "") -> None:
     """
     Download and install dependencies in a virtual environment.
     See https://github.com/dbohdan/pip-wtenv.
@@ -21,7 +21,7 @@ def pip_wtenv(*args: str, name: str = "", venv_parent: str = "") -> None:
 
     me = Path(__file__)
     venv_dir = (
-        Path(venv_parent).expanduser() if venv_parent else me.parent
+        Path(venv_parent_dir).expanduser() if venv_parent_dir else me.parent
     ) / f".venv.{name or me.name}"
 
     if not venv_dir.exists():
