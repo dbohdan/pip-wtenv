@@ -43,10 +43,11 @@ def pip_wtenv(*args: str, name: str = "", venv_parent_dir: str = "") -> None:
 
 # A use example.
 
-pip_wtenv("httpx", "rich<13")
+if __name__ == "__main__":
+    pip_wtenv("httpx", "rich<13")
 
-import httpx
-from rich import print
+    import httpx
+    from rich import print
 
-ip = httpx.get("https://icanhazip.com").text.strip()
-print(f"Your public IP address is [bold]{ip}[/bold]")
+    ip = httpx.get("https://icanhazip.com").text.strip()
+    print(f"Your public IP address is [bold]{ip}[/bold]")

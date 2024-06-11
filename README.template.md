@@ -9,12 +9,12 @@ copy and paste the function `pip_wtenv` into your script and call it with the de
 $code
 ```
 
-The source code above is developed in [`pip-wtenv.py`](pip-wtenv.py).
+The source code above is developed in [`pip_wtenv.py`](pip_wtenv.py).
 
 ## Contents
 
 - [Requirements](#requirements)
-- [Comparison with pip\.wtf](#comparison-with-pipwtf)
+- [Comparison with pip.wtf](#comparison-with-pipwtf)
 - [Alternatives](#alternatives)
 - [Usage](#usage)
 - [License](#license)

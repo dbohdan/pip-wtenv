@@ -3,7 +3,7 @@
 from pathlib import Path
 from string import Template
 
-CODE_FILE = Path("pip-wtenv.py")
+CODE_FILE = Path("pip_wtenv.py")
 README_FILE = Path("README.md")
 TEMPLATE_FILE = Path("README.template.md")
 
