@@ -32,7 +32,10 @@ def pip_wtenv(*args: str, name: str = "", venv_parent_dir: str = "") -> None:
     )
 
     if not ready_marker.exists():
-        run([venv_python, "-m", "pip", "install", "--upgrade", "pip"], check=True)
+        run(
+            [venv_python, "-m", "pip", "install", "--quiet", "--upgrade", "pip"],
+            check=True,
+        )
         run([venv_python, "-m", "pip", "install", *args], check=True)
         ready_marker.touch()
 
