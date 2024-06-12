@@ -11,6 +11,7 @@ import tempfile
 import textwrap
 import time
 import unittest
+import venv
 from pathlib import Path
 from typing import Tuple, Union
 
@@ -58,6 +59,23 @@ class TestPipWtenv(unittest.TestCase):
             assert completed.returncode == 0
 
             assert (temp_dir / "venvs/.venv.foo").is_dir()
+
+    def test_empty_venv(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir_name:
+            temp_dir = Path(temp_dir_name)
+            shutil.copy2(PIP_WTENV_PY, temp_dir)
+
+            # Create a venv but do not install the dependencies.
+            venv_dir = temp_dir / ".venv.pip_wtenv.py"
+            venv.create(venv_dir, with_pip=True)
+
+            venv_python = venv_dir / (
+                "Scripts/python.exe" if sys.platform == "win32" else "bin/python"
+            )
+
+            completed, _ = time_run(venv_python, temp_dir / PIP_WTENV_PY.name)
+            assert completed.returncode == 0
+            assert re.search(EXAMPLE_OUTPUT_RE, completed.stdout)
 
     def test_run_example_repeatedly(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir_name:
