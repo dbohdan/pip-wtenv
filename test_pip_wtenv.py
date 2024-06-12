@@ -17,7 +17,7 @@ from typing import Tuple, Union
 PIP_WTENV_PY = Path(__file__).resolve().parent / "pip_wtenv.py"
 PYTHON = sys.executable
 
-EXAMPLE_OUTPUT_RE = r"IP address is \d+\.\d+\.\d+\.\d+"
+EXAMPLE_OUTPUT_RE = r"IP address is\s+\d+\.\d+\.\d+\.\d+"
 
 
 def time_run(
