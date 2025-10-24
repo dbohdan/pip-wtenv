@@ -77,14 +77,17 @@ like one of the following
 ([my comparison](https://dbohdan.com/scripts-with-dependencies#python)):
 
 - [fades](https://github.com/PyAr/fades)
-  ([Repology](https://repology.org/project/fades/versions))&thinsp;&mdash;&thinsp;`sudo apt install fades` on Debian 10 or later and Ubuntu 16.04 or later
+  ([Repology](https://repology.org/project/fades/versions))
 - [pip-run](https://github.com/jaraco/pip-run)
-  ([Repology](https://repology.org/project/python:pip-run/versions))&thinsp;&mdash;&thinsp;supports
-  [PEP 723](https://peps.python.org/pep-0723/)
+  ([Repology](https://repology.org/project/python:pip-run/versions))&thinsp;&mdash;&thinsp;supports [inline script metadata](https://packaging.python.org/en/latest/specifications/inline-script-metadata/)
+  ([PEP 723](https://peps.python.org/pep-0723/))
 - [pipx](https://github.com/pypa/pipx)
-  ([Repology](https://repology.org/project/pipx/versions))&thinsp;&mdash;&thinsp;supports PEP 723.
-  Choose pipx
-  if you are not sure what to choose.
+  ([Repology](https://repology.org/project/pipx/versions))&thinsp;&mdash;&thinsp;supports inline script metadata
+- [uv](https://github.com/astral-sh/uv)
+  ([Repology](https://repology.org/project/uv/versions))&thinsp;&mdash;&thinsp;supports inline script metadata; manages Python installations
+
+Choose uv if you hesitate what to choose.
+If uv doesn't work on your system (for example, NetBSD), choose pipx.
 
 To use a script runner,
 a user of the script needs to fulfill certain conditions.
