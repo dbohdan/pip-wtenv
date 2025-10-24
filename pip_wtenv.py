@@ -3,7 +3,7 @@
 def pip_wtenv(*args: str, name: str = "", venv_parent_dir: str = "") -> None:
     """
     Download and install dependencies in a virtual environment.
-    See https://github.com/dbohdan/pip-wtenv.
+    See https://github.com/dbohdan/pip-wtenv
 
     Warning: this function will restart Python
     if Python is not running in a venv.
