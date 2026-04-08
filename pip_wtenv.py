@@ -47,10 +47,10 @@ def pip_wtenv(*args: str, name: str = "", venv_parent_dir: str = "") -> None:
 # A use example.
 
 if __name__ == "__main__":
-    pip_wtenv("httpx", "rich<13")
+    pip_wtenv("requests", "rich<13")
 
-    import httpx
+    import requests
     from rich import print
 
-    ip = httpx.get("https://icanhazip.com").text.strip()
+    ip = requests.get("https://icanhazip.com").text.strip()
     print(f"Your public IP address is [bold]{ip}[/bold]")

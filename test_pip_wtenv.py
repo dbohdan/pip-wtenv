@@ -49,9 +49,9 @@ class TestPipWtenv(unittest.TestCase):
             script = textwrap.dedent("""
                 from pip_wtenv import pip_wtenv
 
-                pip_wtenv("-qq", "httpx", name="foo", venv_parent_dir="venvs")
+                pip_wtenv("-qq", "requests", name="foo", venv_parent_dir="venvs")
 
-                import httpx
+                import requests
             """)
             script_file.write_text(script)
 
