@@ -3,25 +3,49 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12", "pypy3.9", "pypy3.10"]
-        os: ["macos-13", "macos-14", "ubuntu-22.04", "windows-2022"]
+        python-version:
+          - '3.8'
+          - '3.9'
+          - '3.10'
+          - '3.11'
+          - '3.12'
+          - '3.13'
+          - '3.14'
+          - 'pypy3.10'
+          - 'pypy3.11'
+        os: ['macos-14', 'macos-15-intel', 'macos-15', 'ubuntu-24.04', 'windows-2025']
         exclude:
-          - python-version: 3.7
+          - python-version: '3.8'
             os: macos-14
-          - python-version: 3.7
-            os: windows-2022
-          - python-version: 3.8
-            os: windows-2022
+          - python-version: '3.8'
+            os: macos-15-intel
+          - python-version: '3.8'
+            os: macos-15
+          - python-version: '3.8'
+            os: ubuntu-24.04
+
+          - python-version: '3.10'
+            os: macos-14
+          - python-version: '3.10'
+            os: macos-15-intel
+          - python-version: '3.10'
+            os: macos-15
+
     steps:
       - name: 'Disable `autocrlf` in Git'
         run: git config --global core.autocrlf false
-      - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+
+      - uses: actions/checkout@v6
+
+      - name: Install uv and set Python version
+        uses: astral-sh/setup-uv@v7
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Test
         run: |
-          python3 test_pip_wtenv.py
+          uv run python test_pip_wtenv.py
