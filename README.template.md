@@ -24,7 +24,7 @@ The source code above is developed in [`pip_wtenv.py`](pip_wtenv.py).
 pip-wtenv requires Python &ge; 3.6 on POSIX systems
 and Python &ge; 3.8 on Windows.
 [PyPy](https://github.com/pypy/pypy)
-(Python 3.9 and 3.10)
+(Python 3.10 and 3.11)
 is supported.
 
 <details>
@@ -36,17 +36,20 @@ The following Python versions and operating systems have been tested
 - CPython:
   - 3.6 on Ubuntu 22.04
   - 3.7, 3.12 on FreeBSD 14.0-RELEASE
-  - 3.7–3.12 on macOS 13 (GitHub Actions)
-  - 3.7–3.12 on Ubuntu 22.04 (GitHub Actions)
-  - 3.8–3.12 on macOS 14 (GitHub Actions)
-  - 3.8 on Windows 10
-  - 3.9–3.12 on Windows Server 2022 (GitHub Actions)
+  - 3.8 on Windows Server 2025 (GitHub Actions)
+  - 3.9, 3.11–3.14 on macOS 14 (GitHub Actions)
+  - 3.9, 3.11–3.14 on macOS 15 Intel (GitHub Actions)
+  - 3.9, 3.11–3.14 on macOS 15 (GitHub Actions)
+  - 3.9–3.14 on Ubuntu 24.04 (GitHub Actions)
+  - 3.8–3.14 on Windows Server 2025 (GitHub Actions)
   - 3.10 on NetBSD 9.3
   - 3.10 on OpenBSD 7.4
 - PyPy:
-  - 7.3 (Python 3.9, 3.10) on macOS 13, 14 (GitHub Actions)
-  - 7.3 (Python 3.9, 3.10) on Ubuntu 22.04 (GitHub Actions)
-  - 7.3 (Python 3.9, 3.10) on Windows Server 2022 (GitHub Actions)
+  - 7.3 (Python 3.10, 3.11) on macOS 14 (GitHub Actions)
+  - 7.3 (Python 3.10, 3.11) on macOS 15 Intel (GitHub Actions)
+  - 7.3 (Python 3.10, 3.11) on macOS 15 (GitHub Actions)
+  - 7.3 (Python 3.10, 3.11) on Ubuntu 24.04 (GitHub Actions)
+  - 7.3 (Python 3.10, 3.11) on Windows Server 2025 (GitHub Actions)
 </details>
 
 ## Comparison with pip.wtf
